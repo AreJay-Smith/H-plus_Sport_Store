@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final int MENU_ITEM_LOGOUT = 1001;
@@ -21,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static String webUrl = "https://www.facebook.com/H-Sport-1388674971422183/";
     private static String email = "info@hplussport.com";
+
+    private List<Product> products = DataProvider.productList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +53,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         String[] items = getResources().getStringArray(R.array.clothing);
-        ArrayAdapter<String> adapter =
-                new ArrayAdapter<>(this,
-                        android.R.layout.simple_list_item_1,
-                        android.R.id.text1, items);
+//        ArrayAdapter<String> adapter =
+//                new ArrayAdapter<>(this,
+//                        android.R.layout.simple_list_item_1,
+//                        android.R.id.text1, items);
+        ProductListAdapter adapter = new ProductListAdapter(
+                this, R.layout.list_item, products);
         ListView lv = (ListView) findViewById(R.id.listView);
         lv.setAdapter(adapter);
 
