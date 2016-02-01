@@ -8,14 +8,13 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-public class  MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private static final int MENU_ITEM_LOGOUT = 1001;
     private CoordinatorLayout coordinatorLayout;
@@ -50,10 +49,10 @@ public class  MainActivity extends AppCompatActivity {
         });
 
         String[] items = getResources().getStringArray(R.array.clothing);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1,
-                android.R.id.text1, items);
-
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<>(this,
+                        android.R.layout.simple_list_item_1,
+                        android.R.id.text1, items);
         ListView lv = (ListView) findViewById(R.id.listView);
         lv.setAdapter(adapter);
 
